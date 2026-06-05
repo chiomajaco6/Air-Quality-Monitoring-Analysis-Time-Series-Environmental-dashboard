@@ -16,7 +16,6 @@
 - [Dashboard Tabs](#-dashboard-tabs)
 - [Key Findings](#-key-findings)
 - [Project Structure](#-project-structure)
-- [Screenshots](#-screenshots)
 - [Team](#-team)
 
 ---
