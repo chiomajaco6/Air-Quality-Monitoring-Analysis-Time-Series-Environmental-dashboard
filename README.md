@@ -1,149 +1,246 @@
-# Air-Quality-Monitoring-Analysis-Time-Series-Environmental-dashboard
-To analyze air quality data using time series techniques and develop an interactive environmental monitoring dashboard for visualizing pollution trends, patterns, and environmental conditions.
+# 🌍 Air Quality Monitoring & Analysis Dashboard
 
-# 🌍 Air Quality Monitoring and Analysis Project
+**An interactive R Shiny dashboard for visualizing urban air pollution trends, patterns, and environmental conditions using time series analysis and forecasting.**
 
-## 📌 Project Overview
-This project focuses on analyzing air quality data to uncover environmental patterns, trends, and insights that support informed decision-making. It applies data science techniques including data preprocessing, exploratory data analysis (EDA), time series analysis, and forecasting to understand pollution behavior over time.
-
-The final output includes visual analytics and an interactive dashboard designed to enhance environmental awareness and support policymakers, researchers, and the public.
+</div>
 
 ---
 
-## 🎯 Specific Objectives
+##  Table of Contents
 
-### 1. Data Collection and Preprocessing
-- Collect air quality datasets from relevant environmental sources.
-- Clean and prepare the dataset for analysis.
-- Handle missing values, duplicate records, and inconsistent entries.
-- Format and standardize date-time variables for time series analysis.
-
----
-
-### 2. Exploratory Data Analysis (EDA)
-- Analyze the distribution of air quality indicators.
-- Examine relationships among environmental variables.
-- Study pollutant behavior such as particulate matter (PM2.5, PM10), gases (CO, NO₂, SO₂, O₃), temperature, and humidity.
+- [Project Overview](#-project-overview)
+- [Dashboard Features](#-dashboard-features)
+- [Dataset](#-dataset)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [Dashboard Tabs](#-dashboard-tabs)
+- [Key Findings](#-key-findings)
+- [Project Structure](#-project-structure)
+- [Screenshots](#-screenshots)
+- [Team](#-team)
 
 ---
 
-### 3. Temporal Pattern Analysis
-- Apply time series analysis techniques.
-- Identify daily, weekly, monthly, and seasonal variations in air quality.
-- Observe long-term environmental trends.
+## Project Overview
+
+This project analyzes air quality data using time series techniques and develops an interactive environmental monitoring dashboard for visualizing pollution trends, patterns, and environmental conditions.
+
+**Goals:**
+- Monitor urban air quality across **6 pollutant indicators** (CO, NO2, NOx, O3, PM2.5, Temperature)
+- Provide an interactive Shiny dashboard for real-time data exploration
+- Identify temporal patterns and seasonal pollution trends
+- Analyse inter-pollutant correlations
+- Apply **ETS time series forecasting** with a 30-step prediction horizon
+- Classify air quality into **AQI categories** for public health insight
 
 ---
 
-### 4. Pollution Trend and Anomaly Detection
-- Detect abnormal spikes or drops in pollution levels.
-- Identify unusual environmental patterns.
-- Investigate possible causes of anomalies.
+##  Dashboard Features
+
+| Feature | Description |
+|---|---|
+|  **KPI Value Boxes** | Real-time Average, Maximum, and Minimum for any selected pollutant |
+| **Trend Line Chart** | Pollutant concentration over time with area fill |
+|  **CO vs NO2 Comparison** | Dual-line chart comparing two key traffic pollutants |
+|  **Correlation Heatmap** | Interactive RdBu heatmap showing Pearson r for all 6 variables |
+|  **ETS Forecast** | 30-step ahead forecast with 95% confidence interval ribbon |
+|  **Interactive Data Table** | Paginated, scrollable table with live observation filter |
+| **Sidebar Controls** | Pollutant selector + observation count slider (100–1,845) |
 
 ---
 
-### 5. Correlation Analysis
-- Evaluate relationships between environmental variables.
-- Determine how factors such as temperature, humidity, and wind speed affect air pollution levels.
-- Use statistical correlation methods to quantify relationships.
+##  Dataset
+
+| Property | Detail |
+|---|---|
+| **Source** | UCI Machine Learning Repository — Air Quality Dataset |
+| **Observations** | 1,845 rows |
+| **Variables** | 7 columns |
+| **Missing Values** | Encoded as `-200`, replaced with column means during preprocessing |
+
+### Variable Definitions
+
+| Variable | Type | Description | Unit |
+|---|---|---|---|
+| `CO` | Continuous | Carbon Monoxide concentration | µg/m³ (sensor) |
+| `NO2` | Continuous | Nitrogen Dioxide concentration | µg/m³ (sensor) |
+| `NOx` | Continuous | Total Nitrogen Oxides | µg/m³ (sensor) |
+| `O3` | Continuous | Ozone concentration | µg/m³ (sensor) |
+| `PM2.5` | Continuous | Fine Particulate Matter (<2.5µm) | µg/m³ (sensor) |
+| `Temperature` | Continuous | Ambient temperature reading | Sensor units |
+| `Category` | Ordinal | AQI classification | 1=Good, 2=Moderate, 3=Sensitive, 4=Unhealthy |
+
+### AQI Category Distribution
+
+| Category | Label | Count | Percentage |
+|---|---|---|---|
+| 1 | Good | 595 | 32.2% |
+| 2 | Moderate | 515 | 27.9% |
+| 3 | Unhealthy for Sensitive Groups | 195 | 10.6% |
+| 4 | Unhealthy | 540 | 29.3% |
+
+>  **39.9%** of all readings fall in Categories 3 or 4 — flagged as potentially harmful to human health.
 
 ---
 
-### 6. Predictive Modeling and Forecasting
-- Develop time series forecasting models.
-- Predict future air quality conditions based on historical data.
-- Support proactive environmental decision-making.
+##  Tech Stack
+
+```
+R                  → Core programming language
+Shiny              → Web application framework
+shinydashboard     → Dashboard layout and navigation UI
+Plotly             → Interactive visualizations
+dplyr              → Data manipulation and cleaning
+forecast (ETS)     → Time series modelling and prediction
+DT                 → Interactive paginated data table
+```
 
 ---
 
-### 7. Interactive Dashboard Development
-- Design and implement an interactive dashboard.
-- Provide real-time visualization of air quality trends.
-- Display pollutant concentrations and environmental statistics in an intuitive format.
+##  Getting Started
+
+### Prerequisites
+
+Make sure you have **R (version 4.0+)** installed. Then install the required packages:
+
+```r
+install.packages(c(
+  "shiny",
+  "shinydashboard",
+  "plotly",
+  "dplyr",
+  "forecast",
+  "DT"
+))
+```
+
+### Running the App
+
+**Option 1 — Clone and run locally:**
+
+```bash
+# Clone the repository
+git clone https://github.com/chiomajaco6/Air-Quality-Monitoring-Analysis-Time-Series-Environmental-dashboard.git
+
+# Navigate into the project folder
+cd Air-Quality-Monitoring-Analysis-Time-Series-Environmental-dashboard
+```
+
+Then in R or RStudio:
+
+```r
+# Set working directory to the project folder
+setwd("Air Quality Monitoring Analysis")
+
+# Launch the dashboard
+shiny::runApp("app.R")
+```
+
+**Option 2 — Run directly from GitHub:**
+
+```r
+shiny::runGitHub(
+  repo = "Air-Quality-Monitoring-Analysis-Time-Series-Environmental-dashboard",
+  username = "chiomajaco6",
+  subdir = "Air Quality Monitoring Analysis"
+)
+```
+
+The dashboard will open in your browser at `http://127.0.0.1:PORT`.
 
 ---
 
-### 8. Data Visualization
-- Use charts, graphs, heatmaps, and trend plots.
-- Present insights clearly and effectively.
-- Enhance interpretability of environmental data.
+##  Dashboard Tabs
+
+### 1.  Overview
+- **Value Boxes**: Live Average, Max, and Min for the selected pollutant
+- **Pollutant Trend**: Line chart of concentration over time
+- **Distribution**: Histogram of pollutant frequency
+
+### 2.  Time Series
+- **Full Time Series**: Area-fill plot of the selected pollutant over all observations
+- **CO vs NO2 Comparison**: Dual-line comparison chart for the two primary combustion pollutants
+
+### 3.  Correlation
+- **Heatmap**: Pearson correlation matrix for all 6 numeric variables, rendered with RdBu colorscale
+- **Scatter Plot**: Selected pollutant vs Temperature to explore meteorological relationships
+
+### 4.  Forecast
+- **ETS Model**: Error-Trend-Seasonality model auto-fitted to the selected pollutant
+- **30-Step Forecast**: Predicted values with 95% confidence interval ribbon
+- Frequency set to `7` (weekly seasonality)
+
+### 5.  Data Table
+- Full filtered dataset rendered as a paginated, scrollable DT table
+- Respects the observation slider — shows only the selected number of rows
 
 ---
 
-### 9. Environmental Awareness and Decision Support
-- Provide actionable insights for environmental monitoring agencies.
-- Support policymakers in pollution control strategies.
-- Improve public awareness of air quality conditions.
+##  Key Findings
+
+1. **~40% of readings are harmful** — Categories 3 and 4 combined represent 39.9% of all observations, indicating a significant public health concern.
+
+2. **CO, NO2, and NOx are highly correlated** (r > 0.94) — consistent with shared traffic and combustion emission sources.
+
+3. **Temperature has negligible correlation with pollutants** (r ≈ 0.10) — pollution variation is source-driven, not meteorologically driven.
+
+4. **ETS forecasting predicts a gradual downward trend** in CO over the next 30 time steps.
+
+5. **Cyclic weekly fluctuations** are visible in pollutant levels — consistent with workday vs. weekend traffic patterns.
 
 ---
 
-### 10. Application of Data Science Techniques
-- Demonstrate real-world application of Python/R in environmental analytics.
-- Integrate data preprocessing, visualization, and machine learning techniques.
-- Showcase end-to-end data science workflow.
+##  Project Structure
+
+```
+Air-Quality-Monitoring-Analysis-Time-Series-Environmental-dashboard/
+│
+├── Air Quality Monitoring Analysis/
+│   ├── app.R                          # Main Shiny application
+│   └── dataset.csv                    # Air quality dataset (1,845 obs)
+│
+├── screenshots/                       # Dashboard screenshots
+│
+├── Air_Quality_Monitoring_Analysis    # Project documentation (PDF/PPTX)
+│   documentation.../
+│
+└── README.md                          # This file
+```
 
 ---
 
-## 🛠️ Tools and Technologies
-- Python / R
-- Pandas, NumPy
-- Matplotlib, Seaborn, Plotly
-- Scikit-learn / Statsmodels
-- Streamlit / Dash (for dashboard)
-- Jupyter Notebook
+##  Team Members
+
+| # | Name |
+|---|---|
+| 1 | ORUKWOWU GODSSON ONYEKWERE |
+| 2 | Okoli Ugonna Alexander |
+| 3 | Success Akukwe |
+| 4 | Mercy Chifurumnaya Iheakachukwu |
+| 5 | Desmond Ahamefula |
+| 6 | Eze Ferdinand Somto |
+| 7 | Dozie Chidiebube Celestine |
+| 8 | Ogbaji Ugochukwu Precious |
+| 9 | Nnamani Chukwuebuka Christian |
+| 10 | Ohuche David Kelechi |
+| 11 | Ekwebelem Gabriel Nnamdi |
+| 12 | Abraham Ebube Emmanuel |
+| 13 | Amobi Cindy Amarachi |
+| 14 | OKORO ENYI REGINALD CHIDERA |
+| 15 | Ogbu Promise Ucha |
+| 16 | Alozie Chibueze Onyinyechi |
+| 17 | Ugwuzor Oluebube Praise |
+| 18 | Miracle Jonathan |
+| 19 | Nwabuife Emmanuel Chimaobi |
+| 20 | Bright Princewill Munachimso |
+| 21 | Mannah Marvellous Ogrenye |
+
+>  **Note:** This team worked collaboratively on data collection, preprocessing, analysis, visualization, and model development to ensure the successful completion of the project.
 
 ---
 
-## 📊 Expected Outcomes
-- Clean and structured air quality dataset
-- Insightful visual analytics of pollution patterns
-- Time series trend analysis
-- Forecasting model for air quality prediction
-- Interactive environmental dashboard
+## 📄 License
+
+This project is licensed under the **MIT License** — feel free to use, modify, and distribute with attribution.
 
 ---
-
-## 📈 Impact
-This project contributes to environmental sustainability by enabling data-driven understanding of air pollution trends, supporting better environmental policies, and increasing public awareness of air quality dynamics.
-
----
-
-## 👩‍💻 Author
-**Dr. Jacinta Chioma Odirichukwu**  
-Department of Computer Science  
-Federal University of Technology Owerri, Nigeria  
-
-## 👥 Project Team Members
-
-The following students contributed to the development and success of this project:
-
-### 🌟 Team Members
-- ORUKWOWU GODSSON ONYEKWERE  
-- Okoli Ugonna Alexander  
-- Success Akukwe  
-- Mercy Chifurumnaya Iheakachukwu  
-- Desmond Ahamefula  
-- Eze Ferdinand Somto  
-- Dozie Chidiebube Celestine  
-- Ogbaji Ugochukwu Precious  
-- Nnamani Chukwuebuka Christian  
-- Ohuche David Kelechi  
-- Ekwebelem Gabriel Nnamdi  
-- Abraham Ebube Emmanuel  
-- Amobi Cindy Amarachi  
-- OKORO ENYI REGINALD CHIDERA  
-- Ogbu Promise Ucha  
-- Alozie Chibueze Onyinyechi  
-- Ugwuzor Oluebube Praise  
-- Miracle Jonathan  
-- Nwabuife Emmanuel Chimaobi  
-- Bright Princewill Munachimso  
-- Mannah Marvellous Ogrenye 
----
-
-### 📌 Note
-This team worked collaboratively on data collection, preprocessing, analysis, visualization, and model development to ensure the successful completion of the project.
-
----
-
-## 📜 License
-This project is open for academic and research use.
