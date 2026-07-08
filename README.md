@@ -211,28 +211,37 @@ Air-Quality-Monitoring-Analysis-Time-Series-Environmental-dashboard/
 ##  Team Members
 
 | # | Name |
-|---|---|
-| 1 | ORUKWOWU GODSSON ONYEKWERE |
-| 2 | Okoli Ugonna Alexander |
-| 3 | Success Akukwe |
-| 4 | Mercy Chifurumnaya Iheakachukwu |
-| 5 | Desmond Ahamefula |
-| 6 | Eze Ferdinand Somto |
-| 7 | Dozie Chidiebube Celestine |
-| 8 | Ogbaji Ugochukwu Precious |
-| 9 | Nnamani Chukwuebuka Christian |
-| 10 | Ohuche David Kelechi |
-| 11 | Ekwebelem Gabriel Nnamdi |
-| 12 | Abraham Ebube Emmanuel |
-| 13 | Amobi Cindy Amarachi |
-| 14 | OKORO ENYI REGINALD CHIDERA |
-| 15 | Ogbu Promise Ucha |
-| 16 | Alozie Chibueze Onyinyechi |
-| 17 | Ugwuzor Oluebube Praise |
-| 18 | Miracle Jonathan |
-| 19 | Nwabuife Emmanuel Chimaobi |
-| 20 | Bright Princewill Munachimso |
-| 21 | Mannah Marvellous Ogrenye |
+-ORUKWOWU GODSSON ONYEKWERE
+-Okoli Ugonna Alexander
+-Success Akukwe
+-Mercy Chifurumnaya Iheakachukwu
+-Desmond Ahamefula
+-Eze Ferdinand Somto
+-Dozie Chidiebube Celestine
+-Ogbaji Ugochukwu Precious
+-Nnamani Chukwuebuka Christian
+-Ohuche David Kelechi
+-Ekwebelem Gabriel Nnamdi
+-Abraham Ebube Emmanuel
+-Amobi Cindy Amarachi
+-OKORO ENYI REGINALD CHIDERA
+-Ogbu Promise Ucha
+-Alozie Chibueze Onyinyechi
+-Ugwuzor Oluebube Praise
+-Miracle JonathanNwabuife
+-Emmanuel Chimaobi
+-Bright Princewill Munachimso
+-Anujuru Favour Chiagoziem
+-VAL-CHINAGI GOODNESS UCHECHI
+-Chine Udodi Excel Okwuchukwu
+-Uzoma Henry Chukwuebuka
+-Chibuzor John
+-Balogun John Munachimso
+-Chinekezi David Chidiebere
+-Uzoho Lazarus Emmanuel Onyedikachi
+-David ohemu promise
+-OPENE CHUKWUDOZIE ISRAEL
+-CHRISTIAN VICTORY CHIBUIKE
 
 >  **Note:** This team worked collaboratively on data collection, preprocessing, analysis, visualization, and model development to ensure the successful completion of the project.
 
